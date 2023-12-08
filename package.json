@@ -6,13 +6,14 @@
   "scripts": {
     "start": "nodemon index.js"
   },
-  "author": "Bolonin Timofey",
+  "author": "",
   "license": "GPL-3.0",
   "dependencies": {
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mongoose": "^8.0.2"
+    "mongodb": "^6.3.0",
+    "mongoose": "^5.5.10"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
