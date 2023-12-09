@@ -11,12 +11,19 @@ app.use("/static", express.static("public"));
 app.use(express.urlencoded({extended: true}));
 
 // connection to database
-mongoose.set("useFindAndModify", true);
-mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true}, () => {
-    console.log("Connected to db!");
+// mongoose.set("useFindAndModify", false);
+// mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+//   console.log("Connected to db!");
+//   app.listen(3000, () => console.log("Server Up and running"));
+// });
 
-    app.listen(3000, () => console.log("server Up and running"));
-})
+async function run() {
+    await mongoose.connect(process.env.DB_CONNECT, {});
+    console.log(mongoose.connection.readyState);
+    console.log("Connected to db!");
+    app.listen(3000, () => console.log("Server Up and running"));
+  }
+  run();
 
 app.set("view engine", "ejs");
 
